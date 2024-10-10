@@ -11,7 +11,7 @@ This project provides an overview of the upcoming Sporting CP football fixtures.
   - Time
   - Competition
 
-- `sporting_cp_fixtures.html`: An HTML file that displays the Sporting CP fixtures in a table format.
+- `index.html`: An HTML file that displays the Sporting CP fixtures in a table format.
 
 - `link_files.py`: A Python script that:
   1. Loads the CSV file and prints the data.
@@ -19,7 +19,7 @@ This project provides an overview of the upcoming Sporting CP football fixtures.
 
 ## How to Use
 
-1. **View Fixtures**: Open the `sporting_cp_fixtures.html` file in any web browser to view the list of upcoming Sporting CP fixtures.
+1. **View Fixtures**: Open the `index.html` file in any web browser to view the list of upcoming Sporting CP fixtures.
 
 2. **Work with Data**: Use the `link_files.py` Python script to load the CSV file and manipulate the data. This script can be extended to integrate the data with web applications or further analysis.
 
