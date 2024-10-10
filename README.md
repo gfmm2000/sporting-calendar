@@ -4,7 +4,7 @@ This project provides an overview of the upcoming Sporting CP football fixtures.
 
 ## Project Structure
 
-- `sporting_cp_fixtures.csv`: A CSV file containing the upcoming Sporting CP fixtures with the following columns:
+- `fixtures.csv`: A CSV file containing the upcoming Sporting CP fixtures with the following columns:
   - Opponent
   - Home/Away
   - Date
