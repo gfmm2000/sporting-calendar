@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Fixture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px; /* Adjust width as needed */
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input, select {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Fixture</h1>
+    <form action="/add_fixture" method="post">
+        <label for="opponent">Opponent:</label>
+        <input type="text" id="opponent" name="opponent" required>
+
+        <label for="home_away">Home/Away:</label>
+        <select id="home_away" name="home_away" required>
+            <option value="Home">Home</option>
+            <option value="Away">Away</option>
+        </select>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="competition">Competition:</label>
+        <select id="competition" name="competition" required>
+            <option value="Portuguese Cup">Portuguese Cup</option>
+            <option value="Champions League">Champions League</option>
+            <option value="Primeira Liga">Primeira Liga</option>
+            <!-- Add more competitions as needed -->
+        </select>
+
+        <button type="submit">Add Fixture</button>
+    </form>
+</body>
+</html>

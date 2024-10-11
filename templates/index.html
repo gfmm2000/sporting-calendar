@@ -4,39 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sporting CP Fixtures</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        th, td {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- Link to the CSS file -->
 </head>
 <body>
-    <h1>Upcoming Sporting CP Fixtures</h1>
+    <h1>Sporting CP Fixtures</h1>
+
+    <div class="button-container">
+        <form action="/add_fixture" method="get">
+            <button type="submit">Add Fixture</button>
+        </form>
+        <form action="/download_ics" method="get">
+            <button type="submit">Download ICS File</button>
+        </form>
+    </div>    
+    
+    
     <table>
-        <tr>
-            <th>Opponent</th>
-            <th>Home/Away</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Competition</th>
-        </tr>
-        {% for match in data %}
-        <tr>
-            <td>{{ match['Opponent'] }}</td>
-            <td>{{ match['Home/Away'] }}</td>
-            <td>{{ match['Date'] }}</td>
-            <td>{{ match['Time'] }}</td>
-            <td>{{ match['Competition'] }}</td>
-        </tr>
-        {% endfor %}
+        <thead>
+            <tr>
+                <th>Opponent</th>
+                <th>Home/Away</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Competition</th>
+                <th>Actions</th>  <!-- New column for actions -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for fixture in data %}
+            <tr>
+                <td>{{ fixture.Opponent }}</td>
+                <td>{{ fixture['Home/Away'] }}</td>
+                <td>{{ fixture.Date }}</td>
+                <td>{{ fixture.Time }}</td>
+                <td>{{ fixture.Competition }}</td>
+                <td>
+                    <form action="/remove_fixture/{{ loop.index0 }}" method="post">
+                        <button type="submit" style="background: none; border: none; color: red; font-size: 1.2em; cursor: pointer;">
+                            ❌  <!-- Unicode for a red cross -->
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
+
+    
 </body>
 </html>

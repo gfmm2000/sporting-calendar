@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Fixture</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Edit Fixture</h1>
+    <form action="/edit_fixture/{{ index }}" method="post">
+        <label for="opponent">Opponent:</label>
+        <input type="text" name="opponent" value="{{ fixture.Opponent }}" required>
+
+        <label for="home_away">Home/Away:</label>
+        <select name="home_away" required>
+            <option value="Home" {% if fixture['Home/Away'] == 'Home' %}selected{% endif %}>Home</option>
+            <option value="Away" {% if fixture['Home/Away'] == 'Away' %}selected{% endif %}>Away</option>
+        </select>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" value="{{ fixture.Date }}" required>
+
+        <label for="time">Time:</label>
+        <input type="time" name="time" value="{{ fixture.Time }}" required>
+
+        <label for="competition">Competition:</label>
+        <select name="competition" required>
+            <option value="Portuguese Cup" {% if fixture.Competition == 'Portuguese Cup' %}selected{% endif %}>Portuguese Cup</option>
+            <option value="Champions League" {% if fixture.Competition == 'Champions League' %}selected{% endif %}>Champions League</option>
+            <option value="Primeira Liga" {% if fixture.Competition == 'Primeira Liga' %}selected{% endif %}>Primeira Liga</option>
+            <!-- Add more competitions as needed -->
+        </select>
+
+        <button type="submit">Update Fixture</button>
+    </form>
+</body>
+</html>
